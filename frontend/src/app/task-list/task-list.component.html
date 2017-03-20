@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row">
+    <div class="col s12">
+      <ul>
+        <a (click)="tabIndex=0" [ngClass]="{'underscore': tabIndex===0 }" class="flow-text center blue-text text-darken-4 col s6 underscore">Active</a>
+        <a (click)="tabIndex=1" [ngClass]="{'underscore': tabIndex===1 }" class="flow-text center blue-text text-darken-4 col s6 underscore">Already Done</a>
+      </ul>
+    </div>
+  </div>
+</div>
+<ul *ngIf="tabIndex==0">
+  <li *ngFor="let task of tasks">
+    <div class="container" *ngIf="task.status">
+      <div class="row">
+        <div class="col s12">
+          <div class="card">
+            <div class="card-stacked">
+              <div class="card-content">
+                <h5>{{task.title}}</h5>
+                <p>{{task.description}}</p>
+                <p class="blue-grey-text darken-4">{{ task.deadline | date }}</p>
+              </div>
+              <div class="card-content blue darken-4 center col s12">
+                <a (click)="updateTaskStatus(task,false)"><i class=" small material-icons white-text">done</i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </li>
+</ul>
+<ul *ngIf="tabIndex==1">
+  <li *ngFor="let task of tasks">
+    <div class="container" *ngIf="!task.status">
+      <div class="row">
+        <div class="col s12">
+          <div class="card">
+            <div class="card-stacked">
+              <div class="card-content">
+                <h5>{{task.title}}</h5>
+                <p>{{task.description}}</p>
+                <p class="blue-grey-text darken-4">{{ task.deadline | date }}</p>
+              </div>
+              <div class="card-content blue darken-4 center col s12">
+                <a (click)="updateTaskStatus(task,true)"><i class="small material-icons white-text col s6">restore</i></a>
+                <a (click)="deleteTask(task)"><i class="small material-icons white-text col s6">delete</i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </li>
+</ul>

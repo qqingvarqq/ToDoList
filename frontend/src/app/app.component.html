@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="card blue darken-4">
+      <div class="card-content white-text center-align">
+        <h3>ToDo List</h3>
+        <div class="col s2 offset-s10">
+          <a *ngIf="this.router.url === '/'||this.router.url === '/taskList'"  routerLink="/newTask" class="center btn-floating btn-large halfway-fab waves-effect waves-light indigo darken-4"><i class="material-icons">add</i></a>
+          <a *ngIf="this.router.url === '/newTask'"  routerLink="/taskList" class="center btn-floating btn-large halfway-fab waves-effect waves-light indigo darken-4"><i class="material-icons">list</i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

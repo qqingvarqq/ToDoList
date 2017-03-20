@@ -1,0 +1,27 @@
+<div class="container">
+  <form class="card-panel" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="task" type="text" class="validate" [(ngModel)]="model.title" name="title" required="" aria-required="true">
+        <label for="task">Task</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <textarea id="description" class="materialize-textarea" [(ngModel)]="model.description" name="description"></textarea>
+        <label for="description">Description</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s12">
+        <label>Deadline</label>
+        <input type="date" class="datepicker" id="deadline" [(ngModel)]="model.deadline" name="deadline">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s12">
+        <button type="submit" class=" blue darken-4 waves-effect waves-light btn col s12" >Add</button>
+      </div>
+    </div>
+  </form>
+</div>
